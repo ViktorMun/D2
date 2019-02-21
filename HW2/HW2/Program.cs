@@ -22,7 +22,7 @@ namespace HW2
             {
                 max = a;
             }
-            else if (b > a && b > c)
+            else if (b > c)
             {
                 max = b;
             }
