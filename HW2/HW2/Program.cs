@@ -16,7 +16,7 @@ namespace HW2
             {
                 if (goodNum(i)) total++;
             }
-       
+
 
             Console.WriteLine("Хорошие числа: " + total);
             DateTime time2 = DateTime.Now;
@@ -35,6 +35,6 @@ namespace HW2
                 x /= 10;
             }
             return i % e == 0;
-                    }
+        }
     }
 }
