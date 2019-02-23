@@ -3,37 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-/// <summary>
-/// 7.	a) Разработать рекурсивный метод, который выводит на экран числа от a до b(a<b).
-//      б) * Разработать рекурсивный метод, который считает сумму чисел от a до b.
 
-/// </summary>
 namespace HW2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите первое значение:");
-            int a = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите второе значение:");
-            int b = Convert.ToInt32(Console.ReadLine());
+            DateTime time1 = DateTime.Now;
             int total = 0;
-            Loop(a, b, total);
+            for (int i = 1; i < 1000000000; i++)
+            {
+                if (goodNum(i)) total++;
+            }
+       
+
+            Console.WriteLine("Хорошие числа: " + total);
+            DateTime time2 = DateTime.Now;
+            Console.WriteLine("Время выполнения: {0}", (time2 - time1));
             Console.ReadKey();
         }
 
-        static void Loop(int a, int b, int total)
-        {
 
-            if (a < b)
+        static bool goodNum(int i)
+        {
+            int x = i;
+            int e = 0;
+            while (x > 0)
             {
-                Console.WriteLine("{0,4} ", a);
-                total += a;
-                Loop(a + 1, b, total);
+                e += x % 10;
+                x /= 10;
             }
-            else
-                Console.WriteLine("Сумма чисел: " + total);
-        }
+            return i % e == 0;
+                    }
     }
 }
